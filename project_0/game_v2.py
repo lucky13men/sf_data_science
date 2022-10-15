@@ -51,9 +51,3 @@ def score_game(random_predict) -> int:
 if __name__ == '__main__':      # программа запустится, если файл будет
     score_game(random_predict)  # исполняемым, но не импортируемым (для работы
                                 # функции нужно вызвать её после импорта файла)
-
-
-#print('a'*79)
-#a_str = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-#print(len(a_str))
-#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
