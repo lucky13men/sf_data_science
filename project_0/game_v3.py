@@ -9,24 +9,34 @@ def random_predict(number:int=1) -> int:
     Args:
         number (int, optional): Загаданное число. По умолчанию кмопьютер
         выбирает случайное число в диапазоне от 1 до 100.
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
     Returns:
         int: Число попыток
     """
 
     count = 0
     min_pr_num = 1
-    max_pr_num = 100
+    max_pr_num = 101
     predict_number = np.random.randint(min_pr_num, max_pr_num)
+    check_ls = list(range(min_pr_num, max_pr_num))  # Список всех чисел
 
     while True:
         count += 1
-        if number > predict_number:
-            min_pr_num = predict_number
-        elif number < predict_number:
-            max_pr_num = predict_number
+        if len(check_ls) <= 2:
+            if number == check_ls[0]:
+                break
+            else:
+                count += 1
+                break
         else:
-            break # выход из цикла, если угадали
+            if number > predict_number:
+                min_pr_num = predict_number
+                predict_number = (min_pr_num+max_pr_num) // 2
+            elif number < predict_number:
+                max_pr_num = predict_number
+                predict_number = (min_pr_num+max_pr_num) // 2
+            else:
+                break # выход из цикла, если угадали
     return(count)
 
 print(f'Количество попыток: {random_predict()}')
@@ -56,7 +66,7 @@ def score_game(random_predict) -> int:
     return(score)
 
 # RUN
-#if __name__ == '__main__':      # программа запустится, если файл будет
-#    score_game(random_predict)  # исполняемым, но не импортируемым (для работы
+if __name__ == '__main__':      # программа запустится, если файл будет
+    score_game(random_predict)  # исполняемым, но не импортируемым (для работы
                                 # функции нужно вызвать её после импорта файла)
-print(score_game(random_predict))
+#print(score_game(random_predict))
