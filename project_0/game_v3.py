@@ -39,8 +39,6 @@ def random_predict(number:int=1) -> int:
                 break # выход из цикла, если угадали
     return(count)
 
-print(f'Количество попыток: {random_predict()}')
-
 
 def score_game(random_predict) -> int:
     """За какое количество попыток в среднем из 1000 подходов угадывает наш
@@ -65,8 +63,6 @@ def score_game(random_predict) -> int:
     print(f'Ваш алгоритм угадывает число в среднем за: {score} попыток')
     return(score)
 
-# RUN
-if __name__ == '__main__':      # программа запустится, если файл будет
-    score_game(random_predict)  # исполняемым, но не импортируемым (для работы
-                                # функции нужно вызвать её после импорта файла)
-#print(score_game(random_predict))
+
+if __name__ == '__main__':
+    score_game(random_predict)
